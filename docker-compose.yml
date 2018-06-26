@@ -1,8 +1,9 @@
 # This compose file will start up Netflix OSS Tracker and load it with a days worth of data
 #
-# You need to export a variable before running it with your github key
+# TODO: You need to export a variable before running it with your github key
 #   export github_oauth=YOUR_KEY_HERE
 #   export github_org=YOUR_ORG_HERE
+#   export github_login=YOUR_LOGIN_HERE
 #
 version: '3'
 services:
