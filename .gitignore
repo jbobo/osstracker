@@ -7,6 +7,7 @@ _*
 *.ipr
 .idea/
 */out
+*.log
 osstracker-scrapernetflixapp
 cassandra_data
 es_data
