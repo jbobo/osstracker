@@ -4,7 +4,7 @@ $(document).ready(function(){
 
   $.getJSON("/js/settings.json", function(json) {
     settings = json;
-    $.get('/hosts/eshost', function(data) {
+    $.get('/hosts/host', function(data) {
       var hrefLink = 'http://' + data + ':' + settings.kibanaPort + kibanaUrl
       $("a[href='http://replaceme']").attr('href', hrefLink)
     });
