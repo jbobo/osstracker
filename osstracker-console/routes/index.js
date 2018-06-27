@@ -9,6 +9,12 @@ var settings = require('../settings.json');
 
 var employeeDirectory = require(settings.employeeDirectory);
 
+var GITHUB_ORG = process.env.github_org;
+if (!GITHUB_ORG) {
+    console.error("github_org environment variable not defined");
+    process.exit(1);
+}
+
 var CASS_HOST = process.env.CASS_HOST;
 if (!CASS_HOST) {
     console.error("CASS_HOST environment variable not defined");
@@ -34,7 +40,25 @@ var SELECT_ALL_FROM_REPO_OWNERSHIP = "SELECT * FROM repo_info";
 // returns a single string of what elastic search DNS name should
 // be used in direct links in the console
 router.get('/hosts/eshost', function(req, res, next) {
+    // res.send(HOST);
     res.send(ES_HOST);
+});
+
+// returns a single string of what elastic search DNS name should
+// be used in direct links in the console
+router.get('/hosts/host', function(req, res, next) {
+    var fullhost = req.headers["host"];
+    var portindex = fullhost.indexOf(':');
+    var host = fullhost.substring(0, portindex);
+    res.send(host);
+    // res.send(ES_HOST);
+});
+
+// returns a single string of what GitHub repo should
+// be used in direct links in the console
+router.get('/github_org', function(req, res, next) {
+    res.send(GITHUB_ORG);
+    // res.send(ES_HOST);
 });
 
 // Response is JSON list that has repo items with repo name, repo org (short form),

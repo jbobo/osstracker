@@ -1,5 +1,6 @@
 var esHost;
 var esPort;
+var github_org;
 
 $(document).ready(function(){
   var settings;
@@ -96,14 +97,19 @@ $(document).ready(function(){
     });
   });
 
-  $.get('/hosts/eshost', function(data) {
+  $.get('/hosts/host', function(data) {
     esHost = data;
+  });
+
+  $.get('/github_org', function(data) {
+    github_org = data;
   });
 
 });
 
 function repoLinkFormatter(value, row) {
-    return '<a href="http://www.github.com/netflix/' + value + '">' + value + '</a>';
+    // return '<a href="http://www.github.com/netflix/' + value + '">' + value + '</a>';
+    return '<a href="https://www.github.com/' + github_org + '/' + value + '">' + value + '</a>';
 }
 
 function esStatsFormatter(value, row) {

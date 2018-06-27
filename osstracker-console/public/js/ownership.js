@@ -1,5 +1,6 @@
 var users;
 var repos;
+var github_org;
 
 $(document).ready(function() {
   $.get('/repos', function(data) {
@@ -123,10 +124,15 @@ $(document).ready(function() {
       $('#table').bootstrapTable('resetView');
      });
   });
+  
+  $.get('/github_org', function(data) {
+    github_org = data;
+  });
+
 });
 
 function repoLinkFormatter(value, row) {
-  return '<a href="http://www.github.com/netflix/' + value + '">' + value + '</a>'; 
+  return '<a href="http://www.github.com/' + github_org + '/' + value + '">' + value + '</a>'; 
 }
 
 function editLinkFormatter(value, row) {
