@@ -25,13 +25,17 @@ task runScraper(type: JavaExec, dependsOn: classes) {
 
     environment = [
         // You should update with your github OAUTH token and org
-        "github_oauth" : "1111111111111111111111111111111111111111",
-        "github_org" : "Netflix",
+        // "github_oauth" : "1111111111111111111111111111111111111111",
+        "github_oauth": System.getenv('github_oauth'),
+        // "github_org" : "Netflix",
+        "github_org": System.getenv('github_org'),
         // You should update with a a cassandra host and port
         "CASS_HOST" : "localhost",
+        // "CASS_HOST" : "cassandra"
         "CASS_PORT" : "9042",
         // You should update with an elasticsearch host and port
         "ES_HOST" : "localhost",
+        // "ES_HOST" : "elasticsearch"
         "ES_PORT" : "9200"
     ]
 
