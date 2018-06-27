@@ -83,9 +83,9 @@ class GithubAccess(val asOfYYYYMMDD: String, val asOfISO: String, val connectToG
       (commitInfo, issuesInfo, prsInfo)
     }
 
-    // TODO: JNB: add params for number of unique visitors
-    // TODO: JNB: add params for number of unique clones
-    // TODO: JNB: add number of referring sites 
+    // TODO: JNB: add params for number of unique visitors.
+    // TODO: JNB: add params for number of unique clones.
+    // TODO: JNB: add number of referring sites. 
     val repoJson: JsObject = Json.obj(
       "asOfISO" -> asOfISO,
       "asOfYYYYMMDD" -> asOfYYYYMMDD,
