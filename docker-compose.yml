@@ -45,14 +45,17 @@ services:
 
   osstracker-console:
     container_name: osstracker-console
-    image: netflixoss/osstracker-console:latest
+    image: ${dockerhub_login}/osstracker-console:latest
     ports:
       - "3000:3000"
     environment:
       CASS_HOST: cassandra
+      # CASS_HOST: localhost
       CASS_PORT: 9042
       ES_HOST: elasticsearch
+      # ES_HOST: localhost
       ES_PORT: 9200
+      github_org: ${github_org}
     restart: always
     depends_on:
       - cassandra
