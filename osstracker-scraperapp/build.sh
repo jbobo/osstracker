@@ -6,12 +6,12 @@ if [ -z "$BASEIMAGE" ] || [ -z "$REGBASE" ]; then
   exit 1
 fi
 
-FINALIMAGE=$REGBASE/netflixoss/osstracker-scraper:latest
+FINALIMAGE=$REGBASE/${dockerhub_login}/osstracker-scraper:latest
  
 docker pull $BASEIMAGE
 docker tag -f $BASEIMAGE javabase:latest
-docker build -t netflixoss/osstracker-scraper:latest .
-docker tag -f netflixoss/osstracker-scraper:latest $FINALIMAGE
+docker build -t ${dockerhub_login}/osstracker-scraper:latest .
+docker tag -f ${dockerhub_login}/osstracker-scraper:latest $FINALIMAGE
 
 RETRY_COUNT=5
 build_succeeded=0

@@ -208,6 +208,7 @@ router.get('/repos/overview', function (req, res) {
     });
 });
 
+
 function queryAllStats(repoName, callback/*(err, hits)*/) {
     // query to search for a specific repo returning only the last document (date wise)
     var query = { "size": 1, "sort": [{"asOfYYYYMMDD": {"order": "desc"}}]};
